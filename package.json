@@ -6,6 +6,7 @@
   "author": "Rafaela Santos <rafaelasantosminios@gmail.com>",
   "private": true,
   "scripts": {
+    "backend": "json-server --watch db/db.json",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
