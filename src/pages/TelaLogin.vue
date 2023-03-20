@@ -7,12 +7,13 @@
         'justify-center': $q.screen.md || $q.screen.sm || $q.screen.xs,
       }"
       class="col-12 col-md-6 flex content-center"
+      style="margin-left: 30vh"
     >
-      <!-- Titulo -->
       <q-card
-        v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '60%' }"
+        v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '50%' }"
       >
         <q-card-section>
+          <!-- Titulo -->
           <div class="q-pt-lg col text-h6 ellipsis flex justify-center">
             <h2 class="text-h2 text-uppercase q-my-none text-weight-regular">
               sgma
