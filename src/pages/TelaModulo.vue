@@ -1,4 +1,5 @@
 <template>
+  <p class="nome-aluno">Aluno(a): {{ nomeAluno }}</p>
   <div class="q-pa-md">
     <q-table
       title="Módulo"
@@ -31,6 +32,10 @@
         </q-input>
       </template>
 
+      <template v-slot:body-cell-status="props">
+        <q-td style="text-align: center">{{ props.row.status }} </q-td>
+      </template>
+
       <template v-slot:body-cell-acoes="props">
         <q-td :props="props">
           <q-btn
@@ -50,15 +55,20 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useQuasar } from "quasar";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { api } from "src/boot/axios";
 import routes from "src/router/routes";
 
+const router = useRouter();
+const route = useRoute();
+const $q = useQuasar();
+const search = ref("");
+const id = route.params.id;
 const columns = [
   {
     name: "nome",
     required: true,
-    label: "Nome Completo",
+    label: "Nome do Módulo",
     align: "left",
     field: "nome",
   },
@@ -84,10 +94,10 @@ const columns = [
     field: "nota3",
   },
   {
-    name: "situacao",
-    label: "Situação",
+    name: "status",
+    label: "Status",
     align: "center",
-    field: "situacao",
+    field: "status",
   },
   {
     name: "acoes",
@@ -98,28 +108,61 @@ const columns = [
 ];
 
 const rows = ref([]);
+const loading = ref(false);
+const filter = ref("");
+const nomeAluno = ref("");
 
-async function buscaDados() {
-  const { data } = await api.get("/modulo");
-  console.log(data);
-  rows.value = data;
+async function buscaDados(id) {
+  const aluno = await api.get("/aluno", {
+    params: { id },
+  });
+
+  nomeAluno.value = aluno.data[0].nome;
+
+  const modulos = await api.get("/modulo", {
+    params: {
+      id_aluno: id,
+    },
+  });
+
+  rows.value = modulos.data;
 }
 
-const router = useRouter();
-const $q = useQuasar();
-const search = ref("");
-
 function addAluno() {
-  router.push("/cadastroModulo");
+  router.push(`/cadastroModulo/${id}`);
 }
 
 function editAluno() {
   console.log("Editando o Aluno...");
 }
 
-onMounted(() => {
-  buscaDados();
+function mediaAluno() {
+  rows.value.forEach((value, index) => {
+    const media = ref(0);
+
+    media.value = (value.nota1 + value.nota2 + value.nota3) / 3;
+
+    if (media.value >= 5) {
+      rows.value[index] = { ...rows.value[index], status: "Apto" }; //operador ... spread
+    } else if (media.value < 5) {
+      rows.value[index] = { ...rows.value[index], status: "Incompleto" };
+    } else {
+      rows.value[index] = { ...rows.value[index], status: "Inapto" };
+    }
+  });
+}
+
+onMounted(async () => {
+  await buscaDados(id);
+  mediaAluno();
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.nome-aluno {
+  margin-top: 20px;
+  margin-bottom: -10px;
+  text-indent: 2em;
+  font-size: 16px;
+}
+</style>

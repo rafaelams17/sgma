@@ -12,7 +12,7 @@ const routes = [
         component: () => import("pages/TelaAluno.vue"),
       },
       {
-        path: "/modulos",
+        path: "/modulos/:id",
         component: () => import("pages/TelaModulo.vue"),
       },
       {
@@ -20,7 +20,7 @@ const routes = [
         component: () => import("components/form/FormAluno.vue"),
       },
       {
-        path: "/cadastroModulo",
+        path: "/cadastroModulo/:id",
         component: () => import("components/form/FormModulo.vue"),
       },
     ],

@@ -70,6 +70,12 @@ import { useRouter } from "vue-router";
 import { api } from "src/boot/axios";
 import routes from "src/router/routes";
 
+const router = useRouter();
+const $q = useQuasar();
+const loading = ref(false);
+const filter = ref("");
+const search = ref("");
+
 const columns = [
   {
     name: "nome",
@@ -141,13 +147,8 @@ async function editAluno(id) {
 }
 
 async function ModuleAluno(id) {
-  router.push("/modulos");
+  router.push(`/modulos/${id}`);
 }
-const router = useRouter();
-const $q = useQuasar();
-const loading = ref(false);
-const filter = ref("");
-const search = ref("");
 
 function addAluno() {
   router.push("/cadastroAluno");
