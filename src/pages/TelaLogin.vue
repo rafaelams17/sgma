@@ -7,7 +7,6 @@
         'justify-center': $q.screen.md || $q.screen.sm || $q.screen.xs,
       }"
       class="col-12 col-md-6 flex content-center"
-      style="margin-left: 30vh"
     >
       <q-card
         v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '50%' }"

@@ -1,44 +1,28 @@
 {
   "aluno": [
     {
-      "nome": "Rafaela Virgens Santos",
-      "data_nasc": "1999-09-07",
-      "cpf": "1234567890",
-      "id": 1
+      "nome": "teste",
+      "data_nasc": "1999-09-06",
+      "cpf": "256436",
+      "id": 2
     }
   ],
   "modulo": [
     {
-      "nome": "A",
-      "nota1": "10",
-      "nota2": "10",
-      "nota3": "10",
-      "id_aluno": 1,
-      "id": 1
-    },
-    {
-      "nome": "C",
-      "nota1": "5",
+      "nome": "B",
+      "nota1": "",
       "nota2": "",
       "nota3": "",
       "id_aluno": 1,
       "id": 2
     },
     {
-      "nome": "B",
-      "nota1": "5",
+      "nome": "A",
+      "nota1": "",
       "nota2": "",
-      "nota3": "3",
+      "nota3": "",
       "id_aluno": 2,
       "id": 3
-    },
-    {
-      "nome": "F",
-      "nota1": "5",
-      "nota2": "2",
-      "nota3": "1",
-      "id_aluno": 2,
-      "id": 4
     }
   ],
   "user": [

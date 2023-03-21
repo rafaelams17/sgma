@@ -91,7 +91,10 @@ async function onSubmit() {
   let moduloExiste = false;
 
   for (var i = 0; i < data.length; i++) {
-    if (form.value.nome == data[i].nome) {
+    if (
+      form.value.nome == data[i].nome &&
+      form.value.id_aluno == data[i].id_aluno
+    ) {
       moduloExiste = true;
     }
   }
@@ -104,7 +107,7 @@ async function onSubmit() {
   } else {
     const aluno = await api.post("/modulo", form.value);
     $q.notify({
-      type: "info",
+      type: "positive",
       message: "Módulo cadastrado com sucesso!",
       timeout: 1000,
     });

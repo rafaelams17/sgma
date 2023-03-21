@@ -91,7 +91,7 @@ async function onSubmit() {
     const aluno = await api.post("/aluno", form.value);
 
     $q.notify({
-      type: "info",
+      type: "positive",
       message: "Aluno cadastrado com sucesso!",
       timeout: 1000,
     });

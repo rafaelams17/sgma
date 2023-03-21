@@ -49,6 +49,14 @@
         </q-td>
       </template>
     </q-table>
+    <div class="q-mt-md">
+      <q-btn
+        icon="arrow_back"
+        color="primary"
+        label="Voltar"
+        @click="voltar()"
+      />
+    </div>
   </div>
 </template>
 
@@ -64,6 +72,11 @@ const route = useRoute();
 const $q = useQuasar();
 const search = ref("");
 const id = route.params.id;
+const rows = ref([]);
+const loading = ref(false);
+const filter = ref("");
+const nomeAluno = ref("");
+
 const columns = [
   {
     name: "nome",
@@ -107,11 +120,6 @@ const columns = [
   },
 ];
 
-const rows = ref([]);
-const loading = ref(false);
-const filter = ref("");
-const nomeAluno = ref("");
-
 async function buscaDados(id) {
   const aluno = await api.get("/aluno", {
     params: { id },
@@ -136,20 +144,25 @@ function editAluno() {
   console.log("Editando o Aluno...");
 }
 
-function mediaAluno() {
+async function mediaAluno() {
   rows.value.forEach((value, index) => {
     const media = ref(0);
+    media.value =
+      (Number(value.nota1) + Number(value.nota2) + Number(value.nota3)) / 3;
 
-    media.value = (value.nota1 + value.nota2 + value.nota3) / 3;
-
-    if (media.value >= 5) {
+    if (value.nota1 === "" || value.nota2 === "" || value.nota3 === "") {
+      rows.value[index] = { ...rows.value[index], status: "Incompleto" };
+    } else if (media.value >= 5) {
       rows.value[index] = { ...rows.value[index], status: "Apto" }; //operador ... spread
     } else if (media.value < 5) {
-      rows.value[index] = { ...rows.value[index], status: "Incompleto" };
-    } else {
       rows.value[index] = { ...rows.value[index], status: "Inapto" };
     }
   });
+}
+
+function voltar() {
+  //console.log("Voltar para página Módulos");
+  router.push("/alunos");
 }
 
 onMounted(async () => {

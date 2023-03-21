@@ -128,18 +128,18 @@ async function deleteAluno(id) {
   })
     .onOk(async () => {
       const aluno = await api.delete(`/aluno/${id}`);
+      const modulo = await api.delete(`/modulo/${id}`);
+
       $q.notify({
-        type: "info",
+        type: "negative",
         message: "Aluno excluído com sucesso!",
         timeout: 1000,
       });
+      buscaDados();
     })
     .onCancel(() => {
       console.log("Cancelando a excluição do Aluno: ", id);
     });
-
-  // Recarregar a página quando o aluno foi deletado
-  // setTimeout(() => router.push("/alunos"), 1500);
 }
 
 async function editAluno(id) {
