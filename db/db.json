@@ -23,6 +23,22 @@
       "nota3": "",
       "id_aluno": 1,
       "id": 2
+    },
+    {
+      "nome": "B",
+      "nota1": "5",
+      "nota2": "",
+      "nota3": "3",
+      "id_aluno": 2,
+      "id": 3
+    },
+    {
+      "nome": "F",
+      "nota1": "5",
+      "nota2": "2",
+      "nota3": "1",
+      "id_aluno": 2,
+      "id": 4
     }
   ],
   "user": [
