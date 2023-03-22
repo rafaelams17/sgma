@@ -1,50 +1,58 @@
 {
   "aluno": [
     {
-      "nome": "Rafaela",
-      "data_nasc": "1999-09-07",
+      "nome": "Rafaela V. Santos",
+      "data_nasc": "2002-02-02",
       "cpf": "123456789",
-      "id": 3
+      "id": 1
     },
     {
-      "nome": "Teste",
-      "data_nasc": "2005-12-05",
-      "cpf": "123456987",
-      "id": 4
+      "nome": "Gustavo Guanabara",
+      "data_nasc": "1978-03-17",
+      "cpf": "9876543210",
+      "id": 2
     }
   ],
   "modulo": [
     {
       "nome": "A",
-      "nota1": "",
-      "nota2": "",
-      "nota3": "",
-      "id_aluno": 2,
-      "id": 3
+      "nota1": "10",
+      "nota2": "10",
+      "nota3": "10",
+      "id_aluno": 1,
+      "id": 1
     },
     {
       "nome": "B",
       "nota1": "5",
       "nota2": "",
-      "nota3": "",
+      "nota3": "5",
+      "id_aluno": 1,
+      "id": 2
+    },
+    {
+      "nome": "C",
+      "nota1": "5",
+      "nota2": "1",
+      "nota3": "5",
+      "id_aluno": 1,
+      "id": 3
+    },
+    {
+      "nome": "B",
+      "nota1": "5",
+      "nota2": "10",
+      "nota3": "2",
       "id_aluno": 2,
       "id": 4
     },
     {
       "nome": "A",
-      "nota1": "",
+      "nota1": "10",
       "nota2": "",
       "nota3": "",
-      "id_aluno": 3,
+      "id_aluno": 2,
       "id": 5
-    },
-    {
-      "nome": "A",
-      "nota1": "",
-      "nota2": "",
-      "nota3": "",
-      "id_aluno": 4,
-      "id": 6
     }
   ],
   "user": [

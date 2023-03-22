@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <p style="text-align: center">Cadastro de Aluno</p>
+    <p style="text-align: center">Cadastrar Aluno</p>
     <q-form @submit="onSubmit" @reset="onReset">
       <!-- Input -->
       <div style="width: 600px; margin: 0 auto">
