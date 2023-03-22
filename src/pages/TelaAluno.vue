@@ -127,8 +127,8 @@ async function deleteAluno(id) {
     style: "text-align: center",
   })
     .onOk(async () => {
-      const aluno = await api.delete(`/aluno/${id}`);
-      const modulo = await api.delete(`/modulo/${id}`);
+      const aluno = await api.delete(`/aluno/${id}`); // apaga o aluno
+      const modulo = await api.delete(`/modulo/${id}`); // ao apagar o aluno tem que apagar todos os módulos que ele está matriculado
 
       $q.notify({
         type: "negative",
@@ -143,7 +143,8 @@ async function deleteAluno(id) {
 }
 
 async function editAluno(id) {
-  console.log("Editar o Aluno: ", id);
+  // console.log("Editar o Aluno: ", id);
+  router.push(`/editar-aluno/${id}`);
 }
 
 async function ModuleAluno(id) {
@@ -151,7 +152,7 @@ async function ModuleAluno(id) {
 }
 
 function addAluno() {
-  router.push("/cadastroAluno");
+  router.push("/cadastro-aluno");
 }
 onMounted(() => {
   buscaDados();

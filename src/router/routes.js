@@ -16,12 +16,20 @@ const routes = [
         component: () => import("pages/TelaModulo.vue"),
       },
       {
-        path: "/cadastroAluno",
+        path: "/cadastro-aluno",
         component: () => import("components/form/FormAluno.vue"),
       },
       {
-        path: "/cadastroModulo/:id",
+        path: "/cadastro-modulo/:id",
         component: () => import("components/form/FormModulo.vue"),
+      },
+      {
+        path: "/editar-aluno/:id",
+        component: () => import("components/formEditar/FormEditAluno.vue"),
+      },
+      {
+        path: "/editar-modulo/:id",
+        component: () => import("components/formEditar/FormEditModulo.vue"),
       },
     ],
   },

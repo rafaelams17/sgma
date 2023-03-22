@@ -14,7 +14,7 @@
           color="primary"
           :disable="loading"
           label="Adicionar Módulo"
-          @click="addAluno"
+          @click="addModulo"
         />
         <q-space />
         <q-input
@@ -42,9 +42,9 @@
             size="sm"
             icon="edit"
             class="q-mx-sm q-px-sm"
-            title="Editar Aluno"
+            title="Editar Módulo"
             color="orange-8"
-            @click="editAluno(props.row.id)"
+            @click="editModulo(props.row.id)"
           />
         </q-td>
       </template>
@@ -136,12 +136,13 @@ async function buscaDados(id) {
   rows.value = modulos.data;
 }
 
-function addAluno() {
-  router.push(`/cadastroModulo/${id}`);
+function addModulo() {
+  router.push(`/cadastro-modulo/${id}`);
 }
 
-function editAluno() {
+function editModulo() {
   console.log("Editando o Aluno...");
+  router.push(`/editar-modulo/${id}`);
 }
 
 async function mediaAluno() {

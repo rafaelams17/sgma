@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <p style="text-align: center">Cadastro de Módulos</p>
+    <p style="text-align: center">Cadastrar Módulo</p>
     <q-form @submit="onSubmit" @reset="onReset">
       <!-- Input -->
       <div style="width: 600px; margin: 0 auto">

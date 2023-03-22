@@ -6,7 +6,7 @@
       v-bind:class="{
         'justify-center': $q.screen.md || $q.screen.sm || $q.screen.xs,
       }"
-      class="col-12 col-md-6 flex content-center"
+      class="col-12 col-md-6 flex content-center login"
     >
       <q-card
         v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '50%' }"
@@ -116,5 +116,9 @@ async function submitForm() {
   bottom: 0;
   z-index: -1;
   opacity: 0.4;
+}
+
+.login {
+  margin-left: 300px;
 }
 </style>
