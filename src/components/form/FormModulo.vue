@@ -69,7 +69,7 @@ const form = ref({
   nota1: "",
   nota2: "",
   nota3: "",
-  id_aluno: Number(id), // associa o módulo com o usuário
+  id_aluno: Number(id), // associa o módulo com o aluno
 });
 
 const nomeRules = [(nome) => (nome && nome.length > 0) || "Campo obrigatório"];
